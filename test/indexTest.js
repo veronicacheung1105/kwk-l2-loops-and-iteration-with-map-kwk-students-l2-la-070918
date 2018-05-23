@@ -1,53 +1,53 @@
 const expect = chai.expect;
 
 describe('index.js', function () {
-  describe('lowerCaseDrivers()', function () {
-    const drivers = [];
+  describe('lowerCaseStudentNames()', function () {
+    const students = [];
 
     beforeEach(function () {
-      drivers.length = 0;
+      students.length = 0;
 
-      drivers.push('Bobby', 'Sammy', 'Sally', 'Annette', 'Sarah', 'Bobby');
+      students.push('Mary', 'Joan', 'Eva', 'Frida', 'Taylor', 'Agnes');
     });
 
-    it('returns all drivers lowercased', function () {
-      expect(lowerCaseDrivers(drivers)).to.eql(['bobby', 'sammy', 'sally', 'annette', 'sarah', 'bobby']);
+    it('returns all students lowercased', function () {
+      expect(lowerCaseStudentNames(students)).to.eql(['mary', 'joan', 'eva', 'frida', 'taylor', 'agnes']);
     });
 
     it('does not modify the original array', function () {
-      lowerCaseDrivers(drivers);
+      lowerCaseStudentNames(students);
 
-      expect(drivers).to.eql(['Bobby', 'Sammy', 'Sally', 'Annette', 'Sarah', 'Bobby']);
+      expect(students).to.eql(['Mary', 'Joan', 'Eva', 'Frida', 'Taylor', 'Agnes']);
     });
   });
 
   describe('nameToAttributes()', function () {
     it('returns list of objects with appropriate first and last names', function () {
-      const drivers = ['Bobby Smith', 'Sammy Watkins', 'Sally Jenkins', 'Annette Sawyer', 'Sarah Hucklebee', 'bobby ridge'];
+      const students = ['Mary Cassatt', 'Joan Mitchell', 'Eva Hesse', 'Frida Kahlo', 'Taylor Swift', 'Agnes Martin'];
 
-      expect(nameToAttributes(drivers)).to.eql([
-        { firstName: 'Bobby',   lastName: 'Smith'     },
-        { firstName: 'Sammy',   lastName: 'Watkins'   },
-        { firstName: 'Sally',   lastName: 'Jenkins'   },
-        { firstName: 'Annette', lastName: 'Sawyer'    },
-        { firstName: 'Sarah',   lastName: 'Hucklebee' },
-        { firstName: 'bobby',   lastName: 'ridge'     }
+      expect(nameToAttributes(students)).to.eql([
+        { firstName: 'Mary',   lastName: 'Cassatt'     },
+        { firstName: 'Joan',   lastName: 'Mitchell'   },
+        { firstName: 'Eva',   lastName: 'Hesse'   },
+        { firstName: 'Frida', lastName: 'Kahlo'    },
+        { firstName: 'Taylor',   lastName: 'Swift' },
+        { firstName: 'Agnes',   lastName: 'Martin'     }
       ]);
     });
   });
 
   describe('attributesToPhrase()', function () {
     it('converts to list saying the name and where each individual is from', function () {
-      const drivers = [
-        { name: 'Bobby',   hometown: 'Pittsburgh'  },
-        { name: 'Sammy',   hometown: 'New York'    },
-        { name: 'Sally',   hometown: 'Cleveland'   },
-        { name: 'Annette', hometown: 'Los Angeles' },
-        { name: 'Bobby',   hometown: 'Tampa Bay'   }
+      const students = [
+        { name: 'Mary',   hometown: 'Allegheny'  },
+        { name: 'Joan',   hometown: 'Chicago'    },
+        { name: 'Eva',   hometown: 'Hamburg'   },
+        { name: 'Frida', hometown: 'Coyoacán' },
+        { name: 'Taylor',   hometown: 'Reading'   }
       ];
 
-      expect(attributesToPhrase(drivers)).to.eql([
-        'Bobby is from Pittsburgh', 'Sammy is from New York', 'Sally is from Cleveland', 'Annette is from Los Angeles', 'Bobby is from Tampa Bay'
+      expect(attributesToPhrase(students)).to.eql([
+        'Mary is from Allegheny', 'Joan is from Chicago', 'Eva is from Hamburg', 'Frida is from Coyoacán', 'Taylor is from Reading'
       ]);
     });
   });
